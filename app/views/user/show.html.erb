@@ -1,0 +1,55 @@
+<html>
+<body>
+
+
+<h1>User information</h1>
+
+<p>First Name - <%= @user.first_name =%></p>
+<p>Last Name - <%= @user.last_name =%></p>
+<p>Email - <%= @user.email =%></p>
+
+
+<p><td><%= link_to "Back to user's list", index_path %></td></p>
+
+<h3>Add Pay</h3>
+
+<%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.text_field :amount %>
+  </p>
+  <p>
+    <%= form.label :amount_date %><br>
+    <%= form.text_area :amount_date %>
+  </p>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.submit 'Add Pay', :name => 'Add' %>
+  </p>
+<% end %>
+
+<table border = 2>
+<h3>Payments list</h3>
+
+<th width = 100, align = center> Amount </th>
+<th width = 150, align = center> Pay Date </th>
+<th width = 500, align = center> Description </th>
+
+<p><% @payments.each do |payment| %></p>
+<tr>
+<td width = 100, align = center> <%= payment.amount =%> </td>
+<td width = 150, align = center> <%= payment.amount_date =%> </td>
+<td width = 500, align = center> <%= payment.description =%> </td>
+</tr>
+<%end%>
+</table>
+
+
+
+
+
+</body>
+</html>

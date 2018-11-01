@@ -1,0 +1,20 @@
+<html>
+<body>
+
+<h1>User's list</h1>
+
+<p><% @users.each do |user| %></p>
+<td> <%= user.first_name =%> </td>
+<td> <%= user.last_name =%> </td>
+<% if current_user && current_user.payer? %> 
+<td><%= link_to "see more", user_id_path(user) %></td>
+<% end %>
+<% if current_user && current_user.admin? %> 
+<td><%= link_to "Delete", user_id_path(user), method: :delete, data: { confirm: "Are you sure?" } %></td>
+<% end %>
+
+<%end%>
+
+<p>end </p>
+</body>
+</html>
