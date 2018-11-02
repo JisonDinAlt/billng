@@ -1,5 +1,6 @@
 # README
-* Ruby version 5.2.1
+* Ruby version 2.5.3
+* Rails version 5.2.1
 
 Billing system:
 - includes 2 roles - the payer and the administrator, the payer can view the contents of the account and add payments, the administrator can delete registered users.
