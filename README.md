@@ -7,5 +7,5 @@ Billing system:
 - base user model - with the relationship "has_many" of payments
 - in the database (seed) next users: 
     email1@email.com, pass '1', role - 'payer'
-    email3@email.com, pass '3', rile - 'admin'
+    email3@email.com, pass '3', role - 'admin'
 
