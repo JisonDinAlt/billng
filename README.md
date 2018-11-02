@@ -1,24 +1,11 @@
 # README
+* Ruby version 5.2.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Billing system:
+- includes 2 roles - the payer and the administrator, the payer can view the contents of the account and add payments, the administrator can delete registered users.
+- authorization system - unregistered users can only see the main page without details.
+- base user model - with the relationship "has_many" of payments
+- in the database (seed) next users: 
+    email1@email.com, pass '1', role - 'payer'
+    email3@email.com, pass '3', rile - 'admin'
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
