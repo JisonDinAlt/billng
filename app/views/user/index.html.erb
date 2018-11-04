@@ -4,7 +4,7 @@
       <p><% @users.each do |user| %></p>
           <td> <%= user.first_name =%> </td>
           <td> <%= user.last_name =%> </td>
-              <% if current_user && current_user.payer? %> 
+              <% if current_user %>
                   <td><%= link_to "see more", user_id_path(user) %></td>
               <% end %>
               <% if current_user && current_user.admin? %> 

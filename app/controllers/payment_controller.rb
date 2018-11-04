@@ -14,6 +14,13 @@ class PaymentController < ApplicationController
     redirect_to :user_id
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @payment = @user.payments.find(params[:id])
+    @payment.delete
+    redirect_to :user_id
+  end
+
   private
     def payment_params
       params.require(:payment).permit(:amount, :amount_date, :description )

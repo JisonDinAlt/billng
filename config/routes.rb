@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :user do
     resources :payments
   end
+  delete '/user/:id/payments' => 'payment#destroy', as: :pay_delete
 end

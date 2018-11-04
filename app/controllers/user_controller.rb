@@ -1,6 +1,5 @@
 class UserController < ApplicationController
   before_action :require_user, only: [:show]
-  before_action :require_payer, only: [:show] 
 
   def index
     @users = User.all
@@ -9,6 +8,16 @@ class UserController < ApplicationController
   def show
     @user = User.find(params[:id])
     @payments = @user.payments
+  end
+  
+  def show_by_date(start_date, end_date)
+    @payments = @user.payments.select {|p| p.amount_date.between?(start_date, end_date)}
+  end
+
+  def show_summary_amount
+    @summary_amount
+    @user.payments.each {|a| @summary_amount += a.amount.to_f}
+    return @summary_amount
   end
   
   def new

@@ -9,10 +9,6 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user 
   end
 
-  def require_payer
-    redirect_to '/no_access' unless current_user.payer?
-  end
-
   def require_admin
     redirect_to '/no_access' unless current_user.admin?
   end

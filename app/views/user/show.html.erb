@@ -5,23 +5,15 @@
       <p>Last Name - <%= @user.last_name =%></p>
       <p>Email - <%= @user.email =%></p>
       <p><td><%= link_to "Back to user's list", index_path %></td></p>
+      <h4>Symmary amount = <%= @summary_amount = 0.0
+                               @user.payments.each {|a| @summary_amount += a.amount.to_f}
+                               @summary_amount =%> </h4>
       <h3>Add Pay</h3>
       <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
-        <p>
-          <%= form.label :amount %><br>
-          <%= form.text_field :amount %>
-        </p>
-        <p>
-          <%= form.label :amount_date %><br>
-          <%= form.text_area :amount_date %>
-        </p>
-        <p>
-          <%= form.label :description %><br>
-          <%= form.text_area :description %>
-        </p>
-        <p>
-          <%= form.submit 'Add Pay', :name => 'Add' %>
-        </p>
+        <p><%= form.label :amount %><br><%= form.text_field :amount %></p>
+        <p><%= form.label :amount_date %><br><%= form.text_area :amount_date %></p>
+        <p><%= form.label :description %><br><%= form.text_area :description %></p>
+        <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
       <% end %>
       <table border = 2>
         <h3>Payments list</h3>
@@ -33,6 +25,9 @@
             <td width = 100, align = center> <%= payment.amount =%> </td>
             <td width = 150, align = center> <%= payment.amount_date =%> </td>
             <td width = 500, align = center> <%= payment.description =%> </td>
+            <% if current_user && current_user.admin? %>
+              <td><%= link_to "Delete", :pay_delete, method: :delete, data: { confirm: "Are you sure?" } %></td>
+            <% end %>
           </tr>
         <%end%>
       </table>

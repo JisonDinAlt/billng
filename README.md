@@ -10,3 +10,9 @@ Billing system:
     email1@email.com, pass '1', role - 'payer'
     email3@email.com, pass '3', role - 'admin'
 
+04-11-2018
+- updates roles - admin and user, admin can delete users and pays, remove "payer" role, in DB field - "is_admin"
+- add summ amount on user page
+- add button "delete pay" on pay page for admin
+
+
