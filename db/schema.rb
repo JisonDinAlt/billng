@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_132148) do
 
   create_table "payments", force: :cascade do |t|
     t.string "amount"
-    t.string "amount_date"
+    t.datetime "amount_date"
     t.string "description"
     t.integer "user_id"
     t.datetime "created_at", null: false

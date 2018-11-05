@@ -1,13 +1,15 @@
 <html>
   <body>
+    <div class=container-fluid>
+      <div class="row">
+        <div class="col-md-8">
       <h1>User information</h1>
       <p>First Name - <%= @user.first_name =%></p>
       <p>Last Name - <%= @user.last_name =%></p>
       <p>Email - <%= @user.email =%></p>
       <p><td><%= link_to "Back to user's list", index_path %></td></p>
-      <h4>Symmary amount = <%= @summary_amount = 0.0
-                               @user.payments.each {|a| @summary_amount += a.amount.to_f}
-                               @summary_amount =%> </h4>
+</div>
+    <div class="col-md-4">
       <h3>Add Pay</h3>
       <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
         <p><%= form.label :amount %><br><%= form.text_field :amount %></p>
@@ -15,21 +17,33 @@
         <p><%= form.label :description %><br><%= form.text_area :description %></p>
         <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
       <% end %>
+    </div>
+    </div>
+        </div>
+
+
+
+
+    <div class="container-fluid">
       <table border = 2>
+        <h4>Symmary amount = <%= @user.payments.sum(:amount)  %></h4>
         <h3>Payments list</h3>
         <th width = 100, align = center> Amount </th>
         <th width = 150, align = center> Pay Date </th>
         <th width = 500, align = center> Description </th>
         <p><% @payments.each do |payment| %></p>
+          <% unless payment.new_record? %>
           <tr>
             <td width = 100, align = center> <%= payment.amount =%> </td>
-            <td width = 150, align = center> <%= payment.amount_date =%> </td>
+            <td width = 250, align = center> <%= payment.amount_date.strftime("%F %T") =%> </td>
             <td width = 500, align = center> <%= payment.description =%> </td>
             <% if current_user && current_user.admin? %>
-              <td><%= link_to "Delete", :pay_delete, method: :delete, data: { confirm: "Are you sure?" } %></td>
+              <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
             <% end %>
           </tr>
+          <%end%>
         <%end%>
       </table>
+    </div>
   </body>
 </html>
