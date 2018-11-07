@@ -15,4 +15,8 @@ Billing system:
 - add summ amount on user page
 - add button "delete pay" on pay page for admin
 
-
+07-11-2018
+- add logic for view payments by period
+- add datepicker
+- updated styles
+- add bootstrap
