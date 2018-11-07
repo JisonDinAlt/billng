@@ -13,7 +13,7 @@
             <h3>Add Pay</h3>
             <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
               <p><%= form.label :amount %><br><%= form.text_field :amount %></p>
-              <p><%= form.label :amount_date %><br><%= form.datetime_field :amount_date, data:{ provide:'datepicker' } %></p>
+              <p><%= form.label :amount_date %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' } %></p>
               <p><%= form.label :description %><br><%= form.text_area :description %></p>
               <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
             <% end %>
