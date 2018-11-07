@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  post '/user/:id/payments' => 'payment#create', as: :pay_create
+  post '/user/:user_id/payments' => 'payment#create', as: :pay_create
   resources :user do
     resources :payments
   end

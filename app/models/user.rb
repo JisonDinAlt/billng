@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :payments  
+  has_many :payments, dependent: :destroy
   has_secure_password
 
   def admin?

@@ -14,3 +14,17 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-datepicker
+
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+$('.datepicker').datepicker({
+  format: "dd/mm/yyyy"
+});
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+$('.datepicker').datepicker({
+  format: "dd/mm/yyyy"
+});
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+$('.datepicker').datepicker({
+  format: "dd/mm/yyyy"
+});
