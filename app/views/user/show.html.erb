@@ -12,93 +12,86 @@
     <div class=container-fluid>
       <div class="row">
         <div class="col-md-8">
-      <h1>User information</h1>
-      <p>First Name - <%= @user.first_name =%></p>
-      <p>Last Name - <%= @user.last_name =%></p>
-      <p>Email - <%= @user.email =%></p>
-      <h4>Symmary amount = <%= @user.payments.sum(:amount)  %></h4>
-      <p><td><%= link_to "Back to user's list", index_path %></td></p>
-</div>
-    <div class="col-md-4">
-      <h3>Add Pay</h3>
-      <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
-        <p><%= form.label :amount %><br><%= form.text_field :amount %></p>
-        <p><%= form.label :amount_date %><br><%= form.datetime_field :amount_date, data:{ provide:'datepicker' } %></p>
-        <p><%= form.label :description %><br><%= form.text_area :description %></p>
-        <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
-      <% end %>
-    </div>
-    </div>
+            <h1>User information</h1>
+            <p>First Name - <%= @user.first_name =%></p>
+            <p>Last Name - <%= @user.last_name =%></p>
+            <p>Email - <%= @user.email =%></p>
+            <h4>Symmary amount = <%= @user.payments.sum(:amount)  %></h4>
+            <p><td><%= link_to "Back to user's list", index_path %></td></p>
+          </div>
+          <div class="col-md-4">
+            <h3>Add Pay</h3>
+            <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
+              <p><%= form.label :amount %><br><%= form.text_field :amount %></p>
+              <p><%= form.label :amount_date %><br><%= form.datetime_field :amount_date, data:{ provide:'datepicker' } %></p>
+              <p><%= form.label :description %><br><%= form.text_area :description %></p>
+              <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
+            <% end %>
+          </div>
         </div>
+      </div>
   </div>
-
-<form action="#" method="get">
-  <fieldset>
-    <legend>Show payments by next period:  </legend>
-<p><label for="start_date">Please choise Start date</label><input type="text_field" data-provide='datepicker' class='datepicker' id="start_date" name="start_date"></p>
-<p><label for="end_date">Please choise End date</label><input type="text_field" data-provide='datepicker' class='datepicker' id="end_date" name="end_date"></p>
-</fieldset>
-<p><input type="submit" value="Show"></p>
-</form>
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <table border = 2>
-
-        <h3>All payments list</h3>
-        <th width = 80, align = center> Amount </th>
-        <th width = 150, align = center> Pay Date </th>
-        <th width = 300, align = center> Description </th>
-        <p><% @payments.each do |payment|   %></p>
-          <% unless payment.new_record? %>
-          <tr>
+  <form action="#" method="get">
+    <fieldset>
+      <legend>Show payments by next period:  </legend>
+      <p><label for="start_date">Please choise Start date</label><input type="text_field" data-provide='datepicker' class='datepicker' id="start_date" name="start_date"></p>
+      <p><label for="end_date">Please choise End date</label><input type="text_field" data-provide='datepicker' class='datepicker' id="end_date" name="end_date"></p>
+    </fieldset>
+    <p><input type="submit" value="Show"></p>
+  </form>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <table border = 2>
+          <h3>All payments list</h3>
+          <th width = 80, align = center> Amount </th>
+          <th width = 150, align = center> Pay Date </th>
+          <th width = 300, align = center> Description </th>
+            <p><% @payments.each do |payment|   %></p>
+            <% unless payment.new_record? %>
+            <tr>
             <td width = 80, align = center> <%= payment.amount =%> </td>
             <td width = 150, align = center> <%= payment.amount_date =%> </td>
             <td width = 300, align = center> <%= payment.description =%> </td>
-            <% if current_user && current_user.admin? %>
-              <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
-            <% end %>
-          </tr>
-          <%end%>
-        <%end%>
-      </table>
-    </div>
-
-
-
+              <% if current_user && current_user.admin? %>
+                <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
+              <% end %>
+            </tr>
+            <%end%>
+            <%end%>
+          </table>
+        </div>
       <div class="col-md-6">
-<% if params[:start_date] && params[:end_date] %>
-      <table border = 2>
-        <h3>Payments by period from <%=params[:start_date]%> to <%=params[:end_date]%></h3>
-        <th width = 80, align = center> Amount </th>
-        <th width = 150, align = center> Pay Date </th>
-        <th width = 300, align = center> Description </th>
-        <p><%@payments.each do |payment| %></p>
-          <% unless payment.new_record? %>
-          <%if payment.amount_date && params[:start_date] && params[:end_date] %>
-          <% @payment1 = payment.amount_date.to_date  %>
-          <% @start_date = params[:start_date].to_date  %>
-          <% @end_date = params[:end_date].to_date %>
-          <%end%>
-<% if @payment1 && params[:start_date] && params[:end_date] && @payment1.between?(@start_date, @end_date)%>
-          <tr>
-          <td width = 80, align = center> <%= payment.amount  %> </td>
-          <td width = 150, align = center> <%= payment.amount_date  %> </td>
-          <td width = 300, align = center> <%= payment.description  %> </td>
-           <% if current_user && current_user.admin? %>
-             <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
-           <% end %>
-          </tr>
-<%end%>
-          <%end%>
-        <%end%>
-<%end%>
-      </table>
+          <% if params[:start_date] && params[:end_date] %>
+            <table border = 2>
+              <h3>Payments by period from <%=params[:start_date]%> to <%=params[:end_date]%></h3>
+              <th width = 80, align = center> Amount </th>
+              <th width = 150, align = center> Pay Date </th>
+              <th width = 300, align = center> Description </th>
+              <p><%@payments.each do |payment| %></p>
+                <% unless payment.new_record? %>
+                  <%if payment.amount_date && params[:start_date] && params[:end_date] %>
+                    <% @payment1 = payment.amount_date.to_date  %>
+                    <% @start_date = params[:start_date].to_date  %>
+                    <% @end_date = params[:end_date].to_date %>
+                  <%end%>
+                  <% if @payment1 && params[:start_date] && params[:end_date] && @payment1.between?(@start_date, @end_date)%>
+                    <tr>
+                    <td width = 80, align = center> <%= payment.amount  %> </td>
+                    <td width = 150, align = center> <%= payment.amount_date  %> </td>
+                    <td width = 300, align = center> <%= payment.description  %> </td>
+                    <% if current_user && current_user.admin? %>
+                      <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
+                    <% end %>
+                    </tr>
+                    <%end%>
+                  <%end%>
+                <%end%>
+              <%end%>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
   </body>
 </html>
