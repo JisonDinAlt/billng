@@ -33,7 +33,7 @@ class UserController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    #redirect_back(fallback_location: :user_id)
+    redirect_back(fallback_location: :user_id)
   end
 
   private

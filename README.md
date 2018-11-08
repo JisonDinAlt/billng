@@ -21,3 +21,8 @@ Billing system:
 - updated styles
 - add bootstrap
 test users: Snow@email.com, pass "1";  Drogo@email.com, pass "3" - admin
+
+08-11-2018
+-add "contacts" and "about us" pages
+-add site menu
+- fixed issue with users Delete

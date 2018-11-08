@@ -1,0 +1,30 @@
+<!--<div class='feedback'>
+<div class="container">
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <table border = 2>
+        <h3>Feedback list</h3>
+        <th width = 80, align = center> Amount </th>
+        <th width = 150, align = center> Pay Date </th>
+        <th width = 300, align = center> Description </th>
+
+          <p><% @messages.each do |m|   %></p>
+          <% unless m.new_record? %>
+          <tr>
+          <td width = 80, align = center> <%= m.email =%> </td>
+          <td width = 150, align = center> <%= m.name =%> </td>
+          <td width = 300, align = center> <%= m.message_text =%> </td>
+            <% if current_user && current_user.admin? %>
+              <td><%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" }  %></td>
+            <% end %>
+          </tr>
+          <%end%>
+          <%end%>
+          <%= link_to 'New Message', "message/new"%>
+        </table>
+      </div>
+-->
