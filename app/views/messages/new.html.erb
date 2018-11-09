@@ -1,17 +1,13 @@
-</div class="create">
-</div class="container">
-
-<h3>Send your message</h3>
-<%= form_for(@message) do |m| %>
-<div class="field">
-<p><%= m.text_field :email, :placeholder => "Email" %></p>
-<p><%= m.text_field :name, :placeholder => "Name" %></p>
-<p><%= m.text_area :message_text, :placeholder => "Text" %></p>
-</div>
-<div class="actions">
-<p><%= m.submit "Create", class: "btn-submit" %></p>
-</div>
-<% end %>
-
-</div>
-</div>
+  </div class="container-fluid">
+    <h3>Please, send your message</h3>
+      <%= form_for(@message) do |m| %>
+        <div class="field">
+          <p><%= m.text_field :email, :placeholder => "Email" %></p>
+          <p><%= m.text_field :name, :placeholder => "Name" %></p>
+          <p><%= m.text_area :message_text, :placeholder => "Text" %></p>
+        </div>
+        <div class="actions">
+          <p><%= m.submit "Send", class: "btn-submit" %></p>
+        </div>
+        <% end %>
+  </div>

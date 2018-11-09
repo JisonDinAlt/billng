@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   get '/user/:id' => 'user#show', as: :user_id
   delete '/user/:id' => 'user#destroy'
   get '/signup' => 'user#new'
+  get '/message/signup' => 'user#new'
   resources :user
   post '/users' => 'user#create'
   post '/messages' => 'message#create'
   get '/login' => 'sessions#new'
+  get '/message/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   post '/user/:user_id/payments' => 'payment#create', as: :pay_create
@@ -22,6 +24,5 @@ Rails.application.routes.draw do
     resources :payments
   end
   delete '/user/:user_id/payments.:id' => 'payment#destroy'
-  delete '/messages/:id' => 'messages#destroy'
   resources :messages
 end

@@ -42,9 +42,9 @@
             <p><% @payments.each do |payment|   %></p>
             <% unless payment.new_record? %>
             <tr>
-            <td width = 80, align = center> <%= payment.amount =%> </td>
-            <td width = 200, align = center> <%= payment.amount_date =%> </td>
-            <td width = 300, align = center> <%= payment.description =%> </td>
+            <td width = 80, align = center> <%= payment.amount %> </td>
+            <td width = 200, align = center> <%= payment.amount_date.strftime("%F") if payment.amount_date%> </td>
+            <td width = 300, align = center> <%= payment.description %> </td>
               <% if current_user && current_user.admin? %>
                 <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
               <% end %>
@@ -74,7 +74,7 @@
                   <% if @payment1 && start_date && end_date && @payment1.between?(@start_date, @end_date)%>
                     <tr>
                     <td width = 80, align = center> <%= payment.amount  %> </td>
-                    <td width = 200, align = center> <%= payment.amount_date  %> </td>
+                    <td width = 200, align = center> <%= payment.amount_date.strftime("%F") if payment.amount_date  %> </td>
                     <td width = 300, align = center> <%= payment.description  %> </td>
                     <% if current_user && current_user.admin? %>
                       <td><%= link_to "Delete", user_payments_path(@user, payment), method: :delete, data: { confirm: "Are you sure?" }  %></td>
