@@ -1,7 +1,8 @@
-class MessageController < ApplicationController
+class MessagesController < ApplicationController
+  before_action :require_user, only: [:show]
 
   def index
-    @message = Message.all
+    @messages = Message.all
   end
 
   def new
@@ -11,7 +12,7 @@ class MessageController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to '/index'
+     redirect_to '/messages'
     else
       render 'new'
     end
@@ -20,8 +21,6 @@ class MessageController < ApplicationController
   def show
     @message = Message.find(params[:id])
   end
-
-
 
   def destroy
     @message = Message.find(params[:id])
