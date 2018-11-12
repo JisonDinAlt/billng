@@ -26,3 +26,7 @@ test users: Snow@email.com, pass "1";  Drogo@email.com, pass "3" - admin
 -add "contacts" and "about us" pages
 -add site menu
 - fixed issue with users Delete
+
+12-11-2018
+-add bootstrap row and col formating for each pages
+-update form styles

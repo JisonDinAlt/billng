@@ -1,7 +1,9 @@
 
     <div class=container-fluid>
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-6">
             <h1>User information</h1>
             <p>First Name - <%= @user.first_name =%></p>
             <p>Last Name - <%= @user.last_name =%></p>
@@ -9,12 +11,12 @@
             <h4>Symmary amount = <%= @user.payments.sum(:amount)  %></h4>
             <p><td><%= link_to "Back to user's list", index_path %></td></p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <h1>Add Pay</h1>
             <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
-              <p><%= form.label :amount %><br><%= form.text_field :amount %></p>
-              <p><%= form.label :amount_date %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' } %></p>
-              <p><%= form.label :description %><br><%= form.text_area :description %></p>
+              <p><%= form.label :amount %><br><%= form.text_field :amount, :placeholder => "Amount" %></p>
+              <p><%= form.label :amount_date %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' }, :placeholder => "Date of pay" %></p>
+              <p><%= form.label :description %><br><%= form.text_area :description, :placeholder => "Description" %></p>
               <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
             <% end %>
           </div>
@@ -22,19 +24,40 @@
       </div>
   </div>
 <div class=container-fluid>
-  <form action="#" method="get">
-    <fieldset>
-      <legend><h1>Show payments by next period: </h1>  </legend>
-      <p><label for="start_date">Please choise Start date </label><input type="text_field" data-provide='datepicker' class='datepicker' id="start_date" name="start_date"></p>
-      <p><label for="end_date">Please choise End date </label><input type="text_field" data-provide='datepicker' class='datepicker' id="end_date" name="end_date"></p>
-    </fieldset>
-    <p><input type="submit" value="Show"></p>
-  </form>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+        <form action="#" method="get">
+          <fieldset>
+            <legend><h1>Show payments by next period: </h1>  </legend>
+              <div class="row">
+                <div class="col-md-4">
+                  <p><label for="start_date">Please choise Start date</label>
+                </div>
+                <div class="col-md-6">
+                  <input type="text_field" data-provide='datepicker' class='datepicker' id="start_date" name="start_date" placeholder="Period Start Date" ></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <p><label for="end_date">Please choise End date</label>
+                </div>
+                <div class="col-md-4">
+                  <input type="text_field" data-provide='datepicker' class='datepicker' id="end_date" name="end_date" placeholder="Period End Date" ></p>
+                </div>
+          </fieldset>
+          <p><input type="submit" value="Show"></p>
+        </form>
+      </div>
+  </div>
 </div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
-        <table border = 2>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+        <table class="table table-hover" border = 2>
           <h1>All payments list</h1>
           <th width = 80, align = center> Amount </th>
           <th width = 200, align = center> Pay Date </th>
@@ -53,13 +76,13 @@
             <%end%>
           </table>
         </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <% start_date = params[:start_date]%>
         <% end_date = params[:end_date]%>
         <% start_date = "01/01/1900" if start_date == ""%>
         <% end_date = "31/12/2999" if end_date == ""%>
           <% if start_date && end_date %>
-            <table border = 2>
+            <table class="table table-hover" border = 2>
               <h1>Payments by period from <%=start_date%> to <%=end_date%></h1>
               <th width = 80, align = center> Amount </th>
               <th width = 200, align = center> Pay Date </th>
