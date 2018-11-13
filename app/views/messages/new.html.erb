@@ -1,17 +1,33 @@
-<div class="container h-100">
+<div class="container-fluid h-100">
   <div class="row h-100 justify-content-center align-items-center">
-    <div class="form">
-     <h3>Please, send your message</h3>
-       <%= form_for(@message) do |m| %>
-         <div class="field">
-           <p><%= m.text_field :email, :placeholder => "email@email.com" %></p>
-           <p><%= m.text_field :name, :placeholder => "Name" %></p>
-           <p><%= m.text_area :message_text, :placeholder => "Text" %></p>
-         </div>
-         <div class="actions">
-           <p><%= m.submit "Send", class: "btn-submit" %></p>
-         </div>
-         <% end %>
-     </div>
+    <div class="col-auto">
+      <h3>Please, send your message</h3>
+    </div>
   </div>
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="form-row align-items-center">
+       <%= form_for(@message) do |m| %>
+        <div class="row">
+           <div class="col-auto">
+             <p><%= m.text_field :email, :placeholder => "email@email.com", :class => "form-control mb-2"  %></p>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-auto">
+               <p><%= m.text_field :name, :placeholder => "Name", :class => "form-control mb-2"  %></p>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-auto">
+               <p><%= m.text_area :message_text, :placeholder => "Text", :class => "form-control mb-2"  %></p>
+           </div>
+        </div>
+           <div class="col-auto">
+             <div class="actions">
+               <p><%= m.submit "Send", class: "btn-submit" %></p>
+             </div>
+           </div>
+         <% end %>
+   </div>
+ </div>
 </div>

@@ -1,6 +1,7 @@
 # README
 * Ruby version 2.5.3
 * Rails version 5.2.1
+* Bootstrap version 4.1.3
 
 Billing system:
 - includes 2 roles - the payer and the administrator, the payer can view the contents of the account and add payments, the administrator can delete registered users.
@@ -30,3 +31,6 @@ test users: Snow@email.com, pass "1";  Drogo@email.com, pass "3" - admin
 12-11-2018
 -add bootstrap row and col formating for each pages
 -update form styles
+
+13-11-2018
+Added responsive design

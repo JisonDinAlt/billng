@@ -11,12 +11,12 @@
             <h4>Symmary amount = <%= @user.payments.sum(:amount)  %></h4>
             <p><td><%= link_to "Back to user's list", index_path %></td></p>
           </div>
-          <div class="col-md-5">
+          <div class="col-auto">
             <h1>Add Pay</h1>
             <%= form_with(model: [ @user, @user.payments.build ], local: true) do |form| %>
-              <p><%= form.label :amount %><br><%= form.text_field :amount, :placeholder => "Amount" %></p>
-              <p><%= form.label :amount_date %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' }, :placeholder => "Date of pay" %></p>
-              <p><%= form.label :description %><br><%= form.text_area :description, :placeholder => "Description" %></p>
+              <p><%= form.label :amount %><br><%= form.text_field :amount, :placeholder => "Amount", :class => "form-control mb-2" %></p>
+              <p><%= form.label :amount_date %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' }, :placeholder => "Date of pay", :class => "form-control mb-2" %></p>
+              <p><%= form.label :description %><br><%= form.text_area :description, :placeholder => "Description", :class => "form-control mb-2" %></p>
               <p><%= form.submit 'Add Pay', :name => 'Add' %></p>
             <% end %>
           </div>
@@ -35,16 +35,16 @@
                 <div class="col-md-4">
                   <p><label for="start_date">Please choise Start date</label>
                 </div>
-                <div class="col-md-6">
-                  <input type="text_field" data-provide='datepicker' class='datepicker' id="start_date" name="start_date" placeholder="Period Start Date" ></p>
+                <div class="col-auto">
+                  <input type="text_field" class="form-control mb-2" data-provide='datepicker' class='datepicker' id="start_date" name="start_date" placeholder="Period Start Date"  ></p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <p><label for="end_date">Please choise End date</label>
                 </div>
-                <div class="col-md-4">
-                  <input type="text_field" data-provide='datepicker' class='datepicker' id="end_date" name="end_date" placeholder="Period End Date" ></p>
+                <div class="col-auto">
+                  <input type="text_field" class="form-control mb-2" data-provide='datepicker' class='datepicker' id="end_date" name="end_date" placeholder="Period End Date" ></p>
                 </div>
           </fieldset>
           <p><input type="submit" value="Show"></p>

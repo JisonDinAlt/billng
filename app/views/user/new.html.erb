@@ -1,17 +1,31 @@
 <div class="login">
-  <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
-      <div class="form">
+  <div class="container-fluid h-100">
 
-      <h1>Sign up</h1>
+
+      <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-auto">
+          <h1>Sign up</h1>
+        </div>
+      </div>
+          <div class="row h-100 justify-content-center align-items-center">
       	<%= form_for(@user) do |f| %>
-           <p><%= f.text_field :first_name, :placeholder => "First name" %></p>
-           <p><%= f.text_field :last_name, :placeholder => "Last name" %></p>
-           <p><%= f.email_field :email, :placeholder => "Email" %></p>
-           <p><%= f.password_field :password, :placeholder => "Password" %></p>
-           <p><%= f.submit "Create an account", class: "btn-submit" %></p>
+        <div class="col-auto">
+           <p><%= f.text_field :first_name, :placeholder => "First name", :class => "form-control mb-2"   %></p>
+        </div>
+        <div class="col-auto">
+           <p><%= f.text_field :last_name, :placeholder => "Last name", :class => "form-control mb-2"   %></p>
+        </div>
+        <div class="col-auto">
+           <p><%= f.email_field :email, :placeholder => "Email", :class => "form-control mb-2"   %></p>
+        </div>
+        <div class="col-auto">
+           <p><%= f.password_field :password, :placeholder => "Password", :class => "form-control mb-2"   %></p>
+        </div>
+        <div class="col-auto">
+           <p><%= f.submit "Create an account", class: "btn-submit", :class => "form-control mb-2"   %></p>
+        </div>
       	<% end %>
-  </div>
+      </div>
   </div>
 </div>
   </div>
