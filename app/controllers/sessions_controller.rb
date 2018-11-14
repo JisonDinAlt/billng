@@ -8,13 +8,13 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to '/index'
-    else 
+    else
       redirect_to 'login'
     end
-  end 
+  end
 
-  def destroy 
-    session[:user_id] = nil 
-    redirect_to '/welcome' 
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/index' 
   end
 end

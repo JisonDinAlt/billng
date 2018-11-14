@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   end
   delete '/user/:user_id/payments.:id' => 'payment#destroy'
   resources :messages
+  get 'images/pic1.jpg',to: redirect('images/pic1.jpg')
 end

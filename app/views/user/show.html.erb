@@ -62,6 +62,9 @@
           <th width = 80, align = center> Amount </th>
           <th width = 200, align = center> Pay Date </th>
           <th width = 300, align = center> Description </th>
+          <% if current_user && current_user.admin? %>
+            <th width = 100, align = center> Delete </th>
+          <% end %>
             <p><% @payments.each do |payment|   %></p>
             <% unless payment.new_record? %>
             <tr>
@@ -87,6 +90,9 @@
               <th width = 80, align = center> Amount </th>
               <th width = 200, align = center> Pay Date </th>
               <th width = 300, align = center> Description </th>
+              <% if current_user && current_user.admin? %>
+                <th width = 100, align = center> Delete </th>
+              <% end %>
               <p><%@payments.each do |payment| %></p>
                 <% unless payment.new_record? %>
                   <%if payment.amount_date && start_date && end_date %>
