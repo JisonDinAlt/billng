@@ -10,6 +10,7 @@
             <p>Email - <%= @user.email =%></p>
             <h4>Symmary amount = <%= @user.payments.sum(:amount)  %></h4>
             <p><td><%= link_to "Back to user's list", index_path %></td></p>
+            <p><td><%= link_to "Export to CSV", user_payments_path(@user, @payment, format: :csv), class: "btn btn-success" %></td></p>
           </div>
           <div class="col-auto">
             <h1>Add Pay</h1>

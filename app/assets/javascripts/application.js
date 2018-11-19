@@ -17,6 +17,6 @@
 //= require bootstrap
 //= require bootstrap-datepicker/core
 $.fn.datepicker.defaults.format = "dd/mm/yyyy";
-$('#datepicker').datepicker({
+$('.datepicker').datepicker({
     format: "dd/mm/yyyy"
 });

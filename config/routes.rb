@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   get '/message/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  post '/user/:user_id/payments' => 'payment#create', as: :pay_create
+  post '/user/:user_id/payments' => 'payments#create', as: :pay_create
   resources :user do
     resources :payments
   end
-  delete '/user/:user_id/payments.:id' => 'payment#destroy'
+  delete '/user/:user_id/payments.:id' => 'payments#destroy'
   resources :messages
+  resources :users, only: :index
+  resources :payments, only: :index
 end

@@ -8,6 +8,10 @@ class UserController < ApplicationController
   def show
     @user = User.find(params[:id])
     @payments = @user.payments
+    respond_to do |format|
+      format.html
+      format.csv { send_data User.to_csv, filename: "payments-#{Date.today}.csv"}
+    end
   end
 
   def new
