@@ -1,0 +1,74 @@
+ru:
+  user:
+    new:
+      title: 'Регистрация'
+      submit: 'Готово!'
+      first_name: 'Имя'
+      last_name: 'Фамилия'
+      email: 'Электронная почта'
+      password: 'Пароль'
+      see_more: 'Подробнее'
+      delete: 'Удалить'
+      Are you sure?: 'Вы уверенны?'
+    index:
+      Clients list: 'Список клиентов'
+    show:
+      User information: 'Информация о клиенте'
+      First Name: 'Имя'
+      Last Name: 'Фамилия'
+      Email: 'Электронная почта'
+      Symmary amount: 'Суммарная задолженность'
+      Back to users list: 'Вернуться к списку клиентов'
+      Export to CSV: 'Экспорт в CSV'
+      Add Pay: 'Добавить платеж'
+      amount: 'Сумма платежа'
+      amount_date: 'Дата платежа'
+      description: 'Описание'
+      Show payments by next period: 'Показать платежи за следующий период'
+      Please choise Start date: 'Пожалуйста выберите дату начала периода'
+      Start Date: 'Начало периода'
+      Please choise End date: 'Пожалуйста выберите дату окончания периода'
+      End Date: 'Окончание периода'
+      Show: 'Показать'
+      All payments list: 'Список всех платежей'
+      Amount: 'Сумма платежа'
+      Pay Date: 'Дата платежа'
+      Description: 'Описание'
+      Delete: 'Удалить'
+      Payments by period from: 'Платежи за период с '
+      to: ' до '
+      Are you sure?: 'Вы уверенны?'
+
+  session:
+    new:
+      title: 'Вход'
+      login: 'Войти'
+      email: 'Электронная почта'
+      password: 'Пароль'
+
+  message:
+    index:
+      Send new Message: 'Отправить новое сообщение'
+      Delete: 'Удалить'
+      Feedback list: 'Список сообщений'
+      Email: 'Электронная почта'
+      Name: 'Имя'
+      Feedback: 'Текст сообщения'
+      Are you sure?: 'Вы уверенны?'
+    new:
+      Please, send your message: 'Пожалуйста, оставьте Ваше сообщение'
+      Email: 'Электронная почта'
+      Name: 'Имя'
+      Text: 'Текст сообщения'
+      Send: 'Отправить'
+
+  layouts:
+    application:
+      Billing system: 'Платежная система'
+      Main page: 'Главная страница'
+      About us: 'О нас'
+      Contacts: 'Контакты'
+      Feedback: 'Обратная связь'
+      Log out: 'Выйти из профиля'
+      Login: 'Войти в профиль'
+      Signup: 'Регистрация'

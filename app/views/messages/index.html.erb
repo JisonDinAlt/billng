@@ -1,23 +1,23 @@
     <div class="container-fluid">
-      <%= link_to 'Send new Message', "message/new", class: "btn btn-large btn-primary"%>
+      <%= link_to t('message.index.Send new Message'), "message/new", class: "btn btn-large btn-primary"%>
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-6">
           <table class="table table-hover" border = 2>
             <% if current_user && current_user.admin? %>
-              <h3>Feedback list</h3>
-              <th width = 150, align = center> Email </th>
-              <th width = 150, align = center> Name </th>
-              <th width = 300, align = center> Feedback </th>
-                <th width = 150, align = center> Delete </th>
+              <h3><%= t('message.index.Feedback list')%></h3>
+              <th width = 150, align = center><%= t('message.index.Email')%>  </th>
+              <th width = 150, align = center><%= t('message.index.Name')%>  </th>
+              <th width = 300, align = center><%= t('message.index.Feedback')%>  </th>
+                <th width = 150, align = center><%= t('message.index.Delete')%>  </th>
               <p><% @messages.each do |message|   %></p>
                 <% unless message.new_record? %>
                   <tr>
                     <td width = 150, align = center> <%= message.email =%> </td>
                     <td width = 150, align = center> <%= message.name =%> </td>
                     <td width = 300, align = center> <%= message.message_text =%> </td>
-                    <td><%= link_to "Delete", message_url(message.id), method: :delete, data: { confirm: "Are you sure?" }  %></td>
+                    <td><%= link_to t('message.index.Delete'), message_url(message.id), method: :delete, data: { confirm: t('message.index.Are you sure?') }  %></td>
                   </tr>
                 <% end %>
               <%end%>

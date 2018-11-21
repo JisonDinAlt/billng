@@ -1,22 +1,24 @@
 <div class="container-fluid h-100">
 	<div class="row h-100 justify-content-center align-items-center ">
 		<div class="col-auto">
-			<p>  <h1>Log in</h1></p>
+			<p>  <h1><%=t('session.new.title')%></h1></p>
 		</div>
 	</div>
   <div class="row h-100 justify-content-center align-items-center">
 			<div class="form-row align-items-center">
 					<%= form_for(:session, url: login_path) do |f| %>
 						<div class="col-auto">
-							<p><%= f.email_field :email, :placeholder => "Email", :class => "form-control mb-2" %></p>
+							<%=   f.label t('session.new.email') %>
+							<p><%= f.email_field :email, :placeholder => t('session.new.email'), :class => "form-control mb-2" %></p>
 						</div>
 						<div class="col-auto">
-							<p><%= f.password_field :password, :placeholder => "Password", :class => "form-control mb-2" %></p>
+							<%=   f.label t('session.new.password')%>
+							<p><%= f.password_field :password, :placeholder => t('session.new.password'), :class => "form-control mb-2" %></p>
 						</div>
 						<div class="col-auto">
-							<%= f.submit "Log in", class: "btn-submit", :class => "form-control mb-2", :class => "btn btn-large btn-primary" %>
+							<%= f.submit t('session.new.login'), class: "btn-submit", :class => "form-control mb-2", :class => "btn btn-large btn-primary" %>
 						</div>
 					<% end %>
 			</div>
-	</div>
+	</div>	
 </div>

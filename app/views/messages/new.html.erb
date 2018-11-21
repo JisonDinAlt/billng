@@ -1,7 +1,7 @@
 <div class="container-fluid h-100">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="col-auto">
-      <h3>Please, send your message</h3>
+      <h3><%= t('message.new.Please, send your message') %></h3>
     </div>
   </div>
   <div class="row h-100 justify-content-center align-items-center">
@@ -9,22 +9,25 @@
        <%= form_for(@message) do |m| %>
         <div class="row">
            <div class="col-auto">
-             <p><%= m.text_field :email, :placeholder => "email@email.com", :class => "form-control mb-2"  %></p>
+             <%=   m.label t('message.new.Email') %>
+             <p><%= m.text_field :email, :placeholder => t('message.new.Email'), :class => "form-control mb-2"  %></p>
            </div>
         </div>
         <div class="row">
            <div class="col-auto">
-               <p><%= m.text_field :name, :placeholder => "Name", :class => "form-control mb-2"  %></p>
+             <%=   m.label t('message.new.Name') %>
+               <p><%= m.text_field :name, :placeholder => t('message.new.Name'), :class => "form-control mb-2"  %></p>
            </div>
         </div>
         <div class="row">
            <div class="col-auto">
-               <p><%= m.text_area :message_text, :placeholder => "Text", :class => "form-control mb-2"  %></p>
+             <%=   m.label t('message.new.Text') %>
+               <p><%= m.text_area :message_text, :placeholder =>  t('message.new.Text'), :class => "form-control mb-2"  %></p>
            </div>
         </div>
            <div class="col-auto">
              <div class="actions">
-               <p><%= m.submit "Send", class: "btn-submit" %></p>
+               <p><%= m.submit  t('message.new.Send'), class: "btn-submit", :class => "btn btn-large btn-success" %></p>
              </div>
            </div>
          <% end %>

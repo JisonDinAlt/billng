@@ -37,7 +37,7 @@ class PaymentsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @payment = @user.payments.find(params[:id])
+    @payment = @user.payments.find(params[:payments_id])
     @payment.delete
     redirect_back(fallback_location: :user_id)
   end

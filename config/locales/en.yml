@@ -1,33 +1,74 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  user:
+    new:
+      title: 'Sign up'
+      submit: 'Submit!'
+      first_name: 'First name'
+      last_name: 'Last name'
+      email: 'Email'
+      password: 'Password'
+      see_more: 'See more'
+      delete: 'Delete'
+      Are you sure?: 'Are you sure?'
+    index:
+      Clients list: 'Clients list'
+    show:
+      User information: 'Clients information'
+      First Name: 'First Name'
+      Last Name: 'Last Name'
+      Email: 'Email'
+      Symmary amount: 'Symmary amount'
+      Back to users list: 'Back to users list'
+      Export to CSV: 'Export to CSV'
+      Add Pay: 'Add Pay'
+      amount: 'Amount'
+      amount_date: 'Amount date'
+      description: 'Description'
+      Show payments by next period: 'Show payments by next period'
+      Please choise Start date: 'Please choise Start date'
+      Start Date: 'Start Date'
+      Please choise End date: 'Please choise End date'
+      End Date: 'End Date'
+      Show: 'Show'
+      All payments list: 'All payments list'
+      Amount: 'Amount'
+      Pay Date: 'Pay Date'
+      Description: 'Description'
+      Delete: 'Delete'
+      Payments by period from: 'Payments by period from '
+      to: ' to '
+      Are you sure?: 'Are you sure?'
+
+  session:
+    new:
+      title: 'Login'
+      login: 'Login'
+      email: 'Email'
+      password: 'Password'
+
+  message:
+    index:
+      Send new Message: 'Send new Message'
+      Delete: 'Delete'
+      Feedback list: 'Feedback list'
+      Email: 'Email'
+      Name: 'Name'
+      Feedback: 'Feedback'
+      Are you sure?: 'Are you sure?'
+    new:
+      Please, send your message: 'Please, send your message'
+      Email: 'Email'
+      Name: 'Name'
+      Text: 'Text'
+      Send: 'Send'
+
+  layouts:
+    application:
+      Billing system: 'Billing system'
+      Main page: 'Main page'
+      About us: 'About us'
+      Contacts: 'Contacts'
+      Feedback: 'Feedback'
+      Log out: 'Log out'
+      Login: 'Login'
+      Signup: 'Signup'

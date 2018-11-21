@@ -1,14 +1,14 @@
 
 <div class = "container">
-     <h1>Client's list</h1>
+     <h1><%= t('user.index.Clients list')%></h1>
       <p><% @users.each do |user| %></p>
-          <td> -  <%= user.first_name =%> </td>
+          <td> <%= user.first_name =%> </td>
           <td> <%= user.last_name =%> </td>
               <% if current_user %>
-                  <td><%= link_to "See more", user_id_path(user) %></td>
+                  <td><%= link_to t('user.new.see_more'), user_id_path(user) %></td>
               <% end %>
               <% if current_user && current_user.admin? %>
-                 <td><%= link_to "Delete", user_id_path(user), method: :delete, data: { confirm: "Are you sure?" } %></td>
+                 <td><%= link_to t('user.new.delete'), user_id_path(user), method: :delete, data: { confirm: t('user.new.Are you sure?') } %></td>
               <% end %>
           <%end%>
 </div>

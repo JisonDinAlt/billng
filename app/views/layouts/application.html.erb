@@ -32,11 +32,13 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div clas="navbar-header">
-          <a class="navbar-brand"><b>Billing system &reg</b></a>
-          <a href='/index' class="navbar-brand">Main page</a>
-          <a href='/about_us' class="navbar-brand">About us</a>
-          <a href='/contacts' class="navbar-brand">Contacts</a>
-          <a href='/messages' class="navbar-brand">Feedback</a>
+          <a class="navbar-brand"><b><%= t('layouts.application.Billing system') %></b></a>
+          <a href='/index' class="navbar-brand"><%= t('layouts.application.Main page') %></a>
+          <a href='/about_us' class="navbar-brand"><%= t('layouts.application.About us') %></a>
+          <a href='/contacts' class="navbar-brand"><%= t('layouts.application.Contacts') %></a>
+          <a href='/messages' class="navbar-brand"><%= t('layouts.application.Feedback') %></a>
+          <a class="nav-item<%= " active" if I18n.locale == :ru %>"><%= link_to "Pyc", { locale: :ru } %></a>
+          <a class="nav-item<%= " active" if I18n.locale == :en %>"><%= link_to "En", { locale: :en } %></a>
         </div>
       </div>
     </nav>
@@ -45,12 +47,12 @@
     <% if current_user %>
       <ul>
         <li><%= current_user.email %></li>
-        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+        <li><%= link_to t('layouts.application.Log out'), logout_path, method: "delete" %></li>
       </ul>
       <% else %>
       <ul>
-        <li><%= link_to "Login", 'login' %></a></li>
-        <li><%= link_to "Signup", 'signup' %></a></li>
+        <li><%= link_to t('layouts.application.Login'), 'login' %></a></li>
+        <li><%= link_to t('layouts.application.Signup'), 'signup' %></a></li>
       </ul>
       <% end %>
     </div>

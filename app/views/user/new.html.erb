@@ -1,28 +1,30 @@
 <div class="login">
   <div class="container-fluid h-100">
-
-
       <div class="row h-100 justify-content-center align-items-center">
         <div class="col-auto">
-          <h1>Sign up</h1>
+          <h1><%= t('user.new.title')%></h1>
         </div>
       </div>
           <div class="row h-100 justify-content-center align-items-center">
       	<%= form_for(@user) do |f| %>
         <div class="col-auto">
-           <p><%= f.text_field :first_name, :placeholder => "First name", :class => "form-control mb-2"   %></p>
+           <%=   f.label :first_name %>
+           <p><%= f.text_field :first_name, :placeholder => t('user.new.first_name'), :class => "form-control mb-2"   %></p>
         </div>
         <div class="col-auto">
-           <p><%= f.text_field :last_name, :placeholder => "Last name", :class => "form-control mb-2"   %></p>
+           <%=   f.label :last_name %>
+           <p><%= f.text_field :last_name, :placeholder => t('user.new.last_name'), :class => "form-control mb-2"   %></p>
         </div>
         <div class="col-auto">
-           <p><%= f.email_field :email, :placeholder => "Email", :class => "form-control mb-2"   %></p>
+           <%=   f.label :email %>
+           <p><%= f.email_field :email, :placeholder => t('user.new.email'), :class => "form-control mb-2"   %></p>
         </div>
         <div class="col-auto">
-           <p><%= f.password_field :password, :placeholder => "Password", :class => "form-control mb-2"   %></p>
+           <%=   f.label :password %>
+           <p><%= f.password_field :password, :placeholder => t('user.new.password'), :class => "form-control mb-2"   %></p>
         </div>
         <div class="col-auto">
-           <p><%= f.submit "Create an account", class: "btn-submit", :class => "form-control mb-2"   %></p>
+           <p><%=  f.submit t('user.new.submit'), class: "btn-primary", :class => "form-control mb-2", :class => "btn btn-large btn-success"  %></p>
         </div>
       	<% end %>
       </div>
