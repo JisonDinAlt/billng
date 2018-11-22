@@ -10,7 +10,7 @@
             <p><%= t('user.show.Email')%> - <%= @user.email =%></p>
             <h4><%= t('user.show.Symmary amount')%> = <%= @user.payments.sum(:amount)  %></h4>
             <p><td><%= link_to t('user.show.Back to users list'), index_path %></td></p>
-            <p><td><%= link_to t('user.show.Export to CSV'), user_payments_path(@user, @payments, format: :csv), class: "btn btn-success" %></td></p>
+            <p><td><%= link_to t('user.show.Export to CSV'), user_payments_path(@user,  format: :csv), class: "btn btn-success" %></td></p>
           </div>
           <div class="col-auto">
             <h1><%= t('user.show.Add Pay')%></h1>

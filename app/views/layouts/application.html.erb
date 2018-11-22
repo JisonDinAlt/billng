@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Optional JavaScript -->
@@ -17,7 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <style>
     body {
-        font-family: 'Poor Story', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 1.5rem;
         font-weight: 400;
         line-height: 1.5;
@@ -33,12 +32,13 @@
       <div class="container-fluid">
         <div clas="navbar-header">
           <a class="navbar-brand"><b><%= t('layouts.application.Billing system') %></b></a>
-          <a href='/index' class="navbar-brand"><%= t('layouts.application.Main page') %></a>
-          <a href='/about_us' class="navbar-brand"><%= t('layouts.application.About us') %></a>
-          <a href='/contacts' class="navbar-brand"><%= t('layouts.application.Contacts') %></a>
-          <a href='/messages' class="navbar-brand"><%= t('layouts.application.Feedback') %></a>
-          <a class="nav-item<%= " active" if I18n.locale == :ru %>"><%= link_to "Pyc", { locale: :ru } %></a>
-          <a class="nav-item<%= " active" if I18n.locale == :en %>"><%= link_to "En", { locale: :en } %></a>
+          <a <%= link_to t('layouts.application.Main page'), index_path %></a>
+          <a <%= link_to t('layouts.application.About us'), about_us_path %></a>
+          <a <%= link_to t('layouts.application.Contacts'), contacts_path %></a>
+          <a <%= link_to t('layouts.application.Feedback'), feedback_path %></a>
+          <a>Language:</a>
+          <a <%= link_to "Pyc", { locale: :ru } %></a>
+          <a <%= link_to "En", { locale: :en } %></a>
         </div>
       </div>
     </nav>
@@ -53,6 +53,7 @@
       <ul>
         <li><%= link_to t('layouts.application.Login'), 'login' %></a></li>
         <li><%= link_to t('layouts.application.Signup'), 'signup' %></a></li>
+
       </ul>
       <% end %>
     </div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /ru|en/ do
-  root 'user#index'
+scope "(:locale)", locale: /ru|en/ do
+
     get '/welcome' => 'welcome#index'
     get '/about_us' => 'welcome#about_us'
     get '/contacts' => 'welcome#contacts'
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     end
     delete '/user/:user_id/payments.:id' => 'payments#destroy'
     delete '/:user_id/user/:payments_id/payments' => 'payments#destroy'
-    resources :messages
     resources :user, only: :index
     resources :payments, only: :index
   end

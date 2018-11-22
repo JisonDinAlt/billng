@@ -34,3 +34,18 @@ test users: Snow@email.com, pass "1";  Drogo@email.com, pass "3" - admin
 
 13-11-2018
 Added responsive design
+
+14-11-2018
+update table style, redirect after logout
+
+15-11-2018
+updated datepicker, fix errors and warnings
+
+19-11-2018
+add export to CSV, fix payments controller name issue
+
+21-11-2018
+add locale ru and en
+
+22-11-2018
+fix locate bugs, update locale switch
