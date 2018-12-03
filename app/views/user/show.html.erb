@@ -8,7 +8,7 @@
             <p><%= t('user.show.First Name')%> - <%= @user.first_name =%></p>
             <p><%= t('user.show.Last Name')%> - <%= @user.last_name =%></p>
             <p><%= t('user.show.Email')%> - <%= @user.email =%></p>
-            <h4><%= t('user.show.Symmary amount')%> = <%= @user.payments.sum(:amount)  %></h4>
+            <h4><%= t('user.show.Symmary amount')%> = <%= (@user.payments.where(:pay_type => 'contribution').sum(:amount).to_f - @user.payments.where(:pay_type => 'payment').sum(:amount).to_f).round(2)  %></h4>
             <p><td><%= link_to t('user.show.Back to users list'), index_path %></td></p>
             <p><td><%= link_to t('user.show.Export to CSV'), user_payments_path(@user,  format: :csv), class: "btn btn-success" %></td></p>
           </div>
@@ -18,6 +18,8 @@
               <p><%= form.label t('user.show.amount') %><br><%= form.text_field :amount, :placeholder => t('user.show.Amount'), :class => "form-control mb-2" %></p>
               <p><%= form.label t('user.show.amount_date') %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' }, :placeholder => t('user.show.amount_date'), :class => "form-control mb-2" %></p>
               <p><%= form.label t('user.show.description') %><br><%= form.text_area :description, :placeholder => t('user.show.Description'), :class => "form-control mb-2" %></p>
+              <p><%= form.label t('user.show.Type') %></p>  <div class="row"><%=collection_select(:transfer_type, :transfer_type_id, TransferType.all, :id, :pay_type, { prompt: true }) %> </div>
+              <p><%= form.label t('user.show.Category') %><br><%= form.text_area :pay_category, :placeholder => t('user.show.Category'), :class => "form-control mb-2" %></p>
               <p><%= form.submit t('user.show.Add Pay'), :name => 'Add' %></p>
             <% end %>
           </div>
@@ -63,6 +65,8 @@
           <th width = 80, align = center><%= t('user.show.Amount')%>  </th>
           <th width = 200, align = center><%= t('user.show.Pay Date')%>  </th>
           <th width = 300, align = center><%= t('user.show.Description')%>  </th>
+          <th width = 300, align = center><%= t('user.show.Type')%>  </th>
+          <th width = 300, align = center><%= t('user.show.Category')%>  </th>
           <% if current_user && current_user.admin? %>
             <th width = 100, align = center><%= t('user.show.Delete')%>  </th>
           <% end %>
@@ -72,6 +76,8 @@
             <td width = 80, align = center> <%= payment.amount %> </td>
             <td width = 200, align = center> <%= payment.amount_date.strftime("%F") if payment.amount_date%> </td>
             <td width = 300, align = center> <%= payment.description %> </td>
+            <td width = 300, align = center> <%= payment.pay_type %> </td>
+            <td width = 300, align = center> <%= payment.pay_category %> </td>
               <% if current_user && current_user.admin? %>
                 <td><%= link_to t('user.show.Delete'), user_payments_path(@user, payment), method: :delete, data: { confirm: t('user.show.Are you sure?') }  %></td>
               <% end %>
@@ -91,6 +97,8 @@
               <th width = 80, align = center><%= t('user.show.Amount')%>  </th>
               <th width = 200, align = center><%= t('user.show.Pay Date')%>  </th>
               <th width = 300, align = center><%= t('user.show.Description')%>  </th>
+              <th width = 300, align = center><%= t('user.show.Type')%>  </th>
+              <th width = 300, align = center><%= t('user.show.Category')%>  </th>
               <% if current_user && current_user.admin? %>
                 <th width = 100, align = center><%= t('user.show.Delete')%>  </th>
               <% end %>
@@ -106,6 +114,8 @@
                     <td width = 80, align = center> <%= payment.amount  %> </td>
                     <td width = 200, align = center> <%= payment.amount_date.strftime("%F") if payment.amount_date  %> </td>
                     <td width = 300, align = center> <%= payment.description  %> </td>
+                    <td width = 300, align = center> <%= payment.pay_type %> </td>
+                    <td width = 300, align = center> <%= payment.pay_category %> </td>
                     <% if current_user && current_user.admin? %>
                       <td><%= link_to t('user.show.Delete'), user_payments_path(@user, payment), method: :delete, data: { confirm: t('user.show.Are you sure?') }  %></td>
                     <% end %>

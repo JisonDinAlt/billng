@@ -17,7 +17,7 @@
     <style>
     body {
         font-family: 'Open Sans', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
         color: #212529;
@@ -36,6 +36,7 @@
           <a <%= link_to t('layouts.application.About us'), about_us_path %></a>
           <a <%= link_to t('layouts.application.Contacts'), contacts_path %></a>
           <a <%= link_to t('layouts.application.Feedback'), feedback_path %></a>
+          <a <%= link_to t('layouts.application.Admin page'), transfer_types_path %></a>
           <a>Language:</a>
           <a <%= link_to "Pyc", { locale: :ru } %></a>
           <a <%= link_to "En", { locale: :en } %></a>

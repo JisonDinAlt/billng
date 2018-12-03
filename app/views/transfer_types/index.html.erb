@@ -1,0 +1,32 @@
+<div class = "container">
+  <% if current_user && current_user.admin? %>
+    <div class = "container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+           <h3><%= t('transfer_types.index.headertypes')%></h3>
+           <table class="table table-hover" border="1">
+               <tr><td><b>Pay type</b></td><td><b>Lookup code</b></td><td><b>Delete</b></td></tr>
+                <p><% @transfer_types.each do |transfer_type|   %></p>
+                  <% unless transfer_type.new_record? %>
+                    <tr>
+                        <td><%= transfer_type.pay_type %></td>
+                        <td><%= transfer_type.lookup_code %></td>
+                        <td><%= link_to 'Destroy', transfer_type_path(transfer_type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                <%end%>
+              <%end%>
+            </table>
+        </div><div class="col-md-2">  </div>
+          <div class="col-md-4">
+            <h3><%=t('transfer_types.index.addtypes')%></h3>
+                <%= form_with scope: :transfer_type, local: true do |form| %>
+                <p><%= form.label "Pay type" %></p>
+                <p><%= form.text_field :pay_type %></p>
+                <p><%= form.label "Lookup code - IN or OUT" %></p>
+                <p><%= form.text_field :lookup_code %></p>
+                <p><%= form.submit %></p>
+            <% end %>
+          </div>
+    </div>
+  <% end %>
+</div>

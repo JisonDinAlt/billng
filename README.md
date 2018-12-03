@@ -49,3 +49,11 @@ add locale ru and en
 
 22-11-2018
 fix locate bugs, update locale switch
+
+28-11-2018
+add 2 type of pay: "payment" and "contribution", symmary amount = contribution.all - payment.all
+payment categories: home, auto, travel, food, kredit, deposit
+contribution categories: regular and not_regular
+
+29-11-2018
+add transfer_type and transfer_category

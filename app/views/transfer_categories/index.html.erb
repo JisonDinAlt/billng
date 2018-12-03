@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Transfer Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type lookup code</th>
+      <th>Category name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transfer_categories.each do |transfer_category| %>
+      <tr>
+        <td><%= transfer_category.type_lookup_code %></td>
+        <td><%= transfer_category.category_name %></td>
+        <td><%= link_to 'Show', transfer_category %></td>
+        <td><%= link_to 'Edit', edit_transfer_category_path(transfer_category) %></td>
+        <td><%= link_to 'Destroy', transfer_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transfer Category', new_transfer_category_path %>

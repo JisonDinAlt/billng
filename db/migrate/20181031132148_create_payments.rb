@@ -4,6 +4,8 @@ class CreatePayments < ActiveRecord::Migration[5.2]
 	t.string :amount
 	t.datetime :amount_date
 	t.string :description
+  t.string :pay_type
+  t.string :pay_category
 	t.references :user, foreign_key:  {on_delete: :cascade}
       t.timestamps
     end

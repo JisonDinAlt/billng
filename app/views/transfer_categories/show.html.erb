@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type lookup code:</strong>
+  <%= @transfer_category.type_lookup_code %>
+</p>
+
+<p>
+  <strong>Category name:</strong>
+  <%= @transfer_category.category_name %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_category_path(@transfer_category) %> |
+<%= link_to 'Back', transfer_categories_path %>

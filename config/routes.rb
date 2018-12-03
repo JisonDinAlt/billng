@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 scope "(:locale)", locale: /ru|en/ do
 
     get '/welcome' => 'welcome#index'
@@ -29,5 +30,8 @@ scope "(:locale)", locale: /ru|en/ do
     delete '/:user_id/user/:payments_id/payments' => 'payments#destroy'
     resources :user, only: :index
     resources :payments, only: :index
+    resources :transfer_types
+    resources :transfer_categories
+
   end
 end

@@ -1,0 +1,2 @@
+class TransferCategory < ApplicationRecord
+end

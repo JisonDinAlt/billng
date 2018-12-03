@@ -17,7 +17,7 @@ ru:
       First Name: 'Имя'
       Last Name: 'Фамилия'
       Email: 'Электронная почта'
-      Symmary amount: 'Суммарная задолженность'
+      Symmary amount: 'Суммарный балланс'
       Back to users list: 'Вернуться к списку клиентов'
       Export to CSV: 'Экспорт в CSV'
       Add Pay: 'Добавить платеж'
@@ -38,6 +38,8 @@ ru:
       Payments by period from: 'Платежи за период с '
       to: ' до '
       Are you sure?: 'Вы уверенны?'
+      Type: 'Тип платежа'
+      Category: 'Категория'
 
   session:
     new:
@@ -72,3 +74,12 @@ ru:
       Log out: 'Выйти из профиля'
       Login: 'Войти в профиль'
       Signup: 'Регистрация'
+      Admin page: 'Администрирование'
+
+  transfer_types:
+    index:
+      headertypes: 'Список типов транзакций'
+      no access: 'У вас нет доступа для просмотра этой страницы'
+      addtypes: 'Добавить новый тип транзакции'
+      headercategories: 'Список категорий транзакций'
+      addcategories: 'Добавить новую категорию транзакции'

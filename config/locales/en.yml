@@ -38,6 +38,8 @@ en:
       Payments by period from: 'Payments by period from '
       to: ' to '
       Are you sure?: 'Are you sure?'
+      Type: 'Type'
+      Category: 'Category'
 
   session:
     new:
@@ -72,3 +74,13 @@ en:
       Log out: 'Log out'
       Login: 'Login'
       Signup: 'Signup'
+      Admin page: 'Admin page'
+
+  transfer_types:
+    index:
+      headertypes: 'Transaction type list'
+      no access: 'no access'
+      addtypes: 'Add new transfer type'
+      headercategories: 'Transaction category list'
+      addcategories: 'Add new transfer category'
+      Are you sure?: 'Are you sure?'
