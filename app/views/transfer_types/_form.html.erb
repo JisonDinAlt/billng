@@ -1,0 +1,9 @@
+<div class="col-md-4">
+      <%= form_with scope: :transfer_type, local: true do |form| %>
+      <p><%= form.label t('transfer_types._form.Pay type') %></p>
+      <p><%= form.text_field :pay_type %></p>
+      <p><%= form.label t('transfer_types._form.Lookup code - payment or contribution') %></p>
+      <p><%= form.text_field :lookup_code %></p>
+      <p><%= form.submit t('transfer_types._form.submit') %></p>
+      <% end %>
+</div>

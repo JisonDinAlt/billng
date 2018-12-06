@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%=t('transfer_types.show.Pay type')%></strong>
+  <%= @transfer_type.pay_type %>
+</p>
+
+<p>
+  <strong><%=t('transfer_types.show.Lookup code')%></strong>
+  <%= @transfer_type.lookup_code %>
+</p>
+
+<%= link_to t('transfer_types.show.Edit'), edit_transfer_type_path(@transfer_type) %> |
+<%= link_to t('transfer_types.show.Back'), transfer_types_path %>

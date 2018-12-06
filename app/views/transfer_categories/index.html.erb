@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% if current_user && current_user.admin? %>
+  <div class = "container-fluid">
+    <div class="row">
+      <div class="col-md-6">
 
-<h1>Transfer Categories</h1>
+        <h1><%=t('transfer_categories.index.Transfer Categories')%></h1>
+        <table class="table table-hover" >
+          <thead>
+            <tr>
+              <th><%=t('transfer_categories.index.Type lookup code')%></th>
+              <th><%=t('transfer_categories.index.Category name')%></th>
+            </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Type lookup code</th>
-      <th>Category name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @transfer_categories.each do |transfer_category| %>
+              <tr>
+                <td><%= transfer_category.type_lookup_code %></td>
+                <td><%= transfer_category.category_name %></td>
+                <td><%= link_to t('transfer_categories.index.Show'), transfer_category, class: "btn btn-primary" %></td>
+                <td><%= link_to t('transfer_categories.index.Edit'), edit_transfer_category_path(transfer_category), class: "btn btn-warning" %></td>
+                <td><%= link_to t('transfer_categories.index.Destroy'), transfer_category, method: :delete, data: { confirm: t('transfer_categories.index.Are you sure') }, class: "btn btn-danger" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-  <tbody>
-    <% @transfer_categories.each do |transfer_category| %>
-      <tr>
-        <td><%= transfer_category.type_lookup_code %></td>
-        <td><%= transfer_category.category_name %></td>
-        <td><%= link_to 'Show', transfer_category %></td>
-        <td><%= link_to 'Edit', edit_transfer_category_path(transfer_category) %></td>
-        <td><%= link_to 'Destroy', transfer_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <br>
 
-<br>
-
-<%= link_to 'New Transfer Category', new_transfer_category_path %>
+        <%= link_to link_to t('transfer_categories.index.Add new Transfer Category'), new_transfer_category_path, class: "btn btn-success" %>
+        <%= link_to link_to t('transfer_categories.index.Back to Admin page'), admin_page_path, class: "btn btn-danger" %>
+      </div>
+  </div>
+<% end %>

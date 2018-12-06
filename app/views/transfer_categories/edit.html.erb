@@ -1,6 +1,6 @@
-<h1>Editing Transfer Category</h1>
+<h1><%=t('transfer_categories.edit.Editing Transfer Category')%></h1>
 
 <%= render 'form', transfer_category: @transfer_category %>
 
-<%= link_to 'Show', @transfer_category %> |
-<%= link_to 'Back', transfer_categories_path %>
+<%= link_to t('transfer_categories.edit.Show'), @transfer_category %> |
+<%= link_to t('transfer_categories.edit.Back'), transfer_categories_path %>

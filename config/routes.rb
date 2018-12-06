@@ -6,6 +6,7 @@ scope "(:locale)", locale: /ru|en/ do
     get '/about_us' => 'welcome#about_us'
     get '/contacts' => 'welcome#contacts'
     get '/no_access' => 'welcome#no_access'
+    get '/admin_page'=> 'welcome#admin_page'
     get '/messages' => 'messages#index', as: :feedback
     get '/messages/:id' => 'messages#show'
     get '/message/new' => 'messages#new'
@@ -32,6 +33,7 @@ scope "(:locale)", locale: /ru|en/ do
     resources :payments, only: :index
     resources :transfer_types
     resources :transfer_categories
+    post 'transfer_types/new' => 'transfer_types#create'
 
   end
 end

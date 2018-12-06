@@ -75,6 +75,7 @@ en:
       Login: 'Login'
       Signup: 'Signup'
       Admin page: 'Admin page'
+      Language: 'Language'
 
   transfer_types:
     index:
@@ -84,3 +85,66 @@ en:
       headercategories: 'Transaction category list'
       addcategories: 'Add new transfer category'
       Are you sure?: 'Are you sure?'
+
+  transfer_categories:
+    _form:
+      type_lookup_code: 'Type lookup code'
+      category_name: 'Category name'
+      submit: 'Submit'
+    new:
+      New Transfer Category: 'New Transfer Category'
+      Back: 'Back'
+    edit:
+      Editing Transfer Category: 'Edit Transfer Categor'
+      Show: 'Show'
+      Back: 'Back'
+    index:
+      Transfer Categories: 'Transfer Categories'
+      Type lookup code: 'Type lookup code'
+      Category name: 'Category name'
+      Show: 'Show'
+      Edit: 'Edit'
+      Destroy: 'Destroy'
+      Add new Transfer Category: 'Add new Transfer Category'
+      Back to Admin page: 'Back to Admin page'
+      Are you sure: 'Are you sure?'
+    show:
+      Type lookup code: 'Type lookup code'
+      Category name: 'Category name'
+      Edit: 'Edit'
+      Back: 'Back'
+
+    admin_page:
+      Transfer Categories: 'Transfer Categories'
+      Transfer types: 'Transfer types'
+      Categories example: 'Payment categories contain two types, payment ( displayed and counted with a "-" sign, for example, "-23.34") and contribution ( is counted with a "+" sign, displayed without signs, for example, "23.34") '
+      Types example: 'Payment types are divided into 2 types, depending on the category. For payment, there are types of expenses - "home", "auto", "entertainment". For contribution - "regular" and "not regular".'
+      Logic example: 'The total balance is: from the sum of all  contribution  deduct the amount of all payments in the payment . The type of payment is attached to the category through the lookup_code field.'
+
+  transfer_types:
+    _form:
+      Pay type: 'Pay type'
+      Lookup code - payment or contribution: 'Lookup code - payment or contribution'
+      submit: 'Submit'
+    edit:
+      Editing Transfer Type: 'Edit Transfer Type'
+      Show: 'Show'
+      Back: 'Back'
+    index:
+      headertypes: 'Transfer types list'
+      Pay type: 'Pay type'
+      Lookup code: 'Lookup code'
+      Show: 'Show'
+      Edit: 'Edit'
+      Destroy: 'Destroy'
+      Add new Transfer type: 'Add new Transfer type'
+      Back to Admin page: 'Back to Admin page'
+      Are you sure: 'Are you sure?'
+    new:
+      New Transfer type: 'New Transfer type'
+      Back: 'Back'
+    show:
+      Pay type: 'Pay type'
+      Lookup code: 'Lookup code'
+      Edit: 'Edit'
+      Back: 'Back'

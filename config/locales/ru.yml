@@ -75,6 +75,7 @@ ru:
       Login: 'Войти в профиль'
       Signup: 'Регистрация'
       Admin page: 'Администрирование'
+      Language: 'Язык'
 
   transfer_types:
     index:
@@ -83,3 +84,66 @@ ru:
       addtypes: 'Добавить новый тип транзакции'
       headercategories: 'Список категорий транзакций'
       addcategories: 'Добавить новую категорию транзакции'
+
+  transfer_categories:
+    _form:
+      type_lookup_code: 'Код поиска платежа'
+      category_name: 'Имя категории'
+      submit: 'Готово'
+    new:
+      New Transfer Category: 'Создать новую категорию платежа'
+      Back: 'Назад'
+    edit:
+      Editing Transfer Category: 'Редактировать категорию платежа'
+      Show: 'Просмотр'
+      Back: 'Назад'
+    index:
+      Transfer Categories: 'Категории платежа'
+      Type lookup code: 'Тип кода поиска'
+      Category name: 'Имя категории'
+      Show: 'Просмотр'
+      Edit: 'Редактировать'
+      Destroy: 'Удалить'
+      Add new Transfer Category: 'Добавить новую категорию платежа'
+      Back to Admin page: 'Вернуться на панель администратора'
+      Are you sure: 'Вы уверенны?'
+    show:
+      Type lookup code: 'Тип кода поиска'
+      Category name: 'Имя категории'
+      Edit: 'Редактировать'
+      Back: 'Назад'
+
+    admin_page:
+      Transfer Categories: 'Категории платежа'
+      Transfer types: 'Типы платежей'
+      Categories example: 'Категории платежа содержат два типа, оплата (payment - отображается и считается со знаком "-", например "-23.34") и вклад (contribution -  считается со знаком "+", отображается без знаков, например "23.34") '
+      Types example: 'Типы платежей подразделяются на 2 вида, в зависимости от категори. Для оплаты предусмотрены типы расходов - "дом", "авто", "развлечения". Для вкладов - "регулярные" и "не регулярные" '
+      Logic example: 'Суммарный балланс считается: из суммы всех платежей категории вклад (contribution) вычесть сумму всех платежей категории оплата (payment). Тип платежа привязывается к категории через поле lookup_code.'
+
+  transfer_types:
+    _form:
+      Pay type: 'Тип платежа'
+      Lookup code - payment or contribution: 'Код поиска - payment or contribution'
+      submit: 'Готово'
+    edit:
+      Editing Transfer Type: 'Редактировать тип платежа'
+      Show: 'Просмотр'
+      Back: 'Назад'
+    index:
+      headertypes: 'Список типов платежей'
+      Pay type: 'Тип платежа'
+      Lookup code: 'Код поиска'
+      Show: 'Просмотр'
+      Edit: 'Редактировать'
+      Destroy: 'Удалить'
+      Add new Transfer type: 'Добавить новый тип платежа'
+      Back to Admin page: 'Вернуться на панель администратора'
+      Are you sure: 'Вы уверенны?'
+    new:
+      New Transfer type: 'Новый тип платежа'
+      Back: 'Назад'
+    show:
+      Pay type: 'Тип платежа'
+      Lookup code: 'Код поиска'
+      Edit: 'Редактировать'
+      Back: 'Назад'

@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :type_lookup_code %>
+    <%= form.label t('transfer_categories._form.type_lookup_code') %>
     <%= form.text_field :type_lookup_code %>
   </div>
 
   <div class="field">
-    <%= form.label :category_name %>
+    <%= form.label t('transfer_categories._form.category_name') %>
     <%= form.text_field :category_name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('transfer_categories._form.submit') %>
   </div>
 <% end %>

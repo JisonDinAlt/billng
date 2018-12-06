@@ -36,8 +36,10 @@
           <a <%= link_to t('layouts.application.About us'), about_us_path %></a>
           <a <%= link_to t('layouts.application.Contacts'), contacts_path %></a>
           <a <%= link_to t('layouts.application.Feedback'), feedback_path %></a>
-          <a <%= link_to t('layouts.application.Admin page'), transfer_types_path %></a>
-          <a>Language:</a>
+          <% if current_user && current_user.admin? %>
+          <a <%= link_to t('layouts.application.Admin page'), admin_page_path %></a>
+          <% end %>
+          <a><%= t('layouts.application.Language')%></a>
           <a <%= link_to "Pyc", { locale: :ru } %></a>
           <a <%= link_to "En", { locale: :en } %></a>
         </div>
