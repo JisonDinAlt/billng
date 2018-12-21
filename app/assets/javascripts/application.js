@@ -20,3 +20,8 @@ $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 $('.datepicker').datepicker({
     format: "dd/mm/yyyy"
 });
+$(document).ready ( function () {
+$("#type_select").bind("change", function () {
+$("#pay_category").load("/controller/action?type="+$("#type_select option:selected").val());
+});
+});

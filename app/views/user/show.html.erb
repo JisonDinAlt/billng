@@ -18,8 +18,8 @@
               <p><%= form.label t('user.show.amount') %><br><%= form.text_field :amount, :placeholder => t('user.show.Amount'), :class => "form-control mb-2" %></p>
               <p><%= form.label t('user.show.amount_date') %><br><%= form.text_field :amount_date, data:{ provide:'datepicker' }, :placeholder => t('user.show.amount_date'), :class => "form-control mb-2" %></p>
               <p><%= form.label t('user.show.description') %><br><%= form.text_area :description, :placeholder => t('user.show.Description'), :class => "form-control mb-2" %></p>
-              <p><%= form.label t('user.show.Type') %></p>  <div class="row"><%= form.select(:pay_type, TransferType.all.map {|t| [t.pay_type, t.lookup_code]}) %></div>
-              <p><%= form.label t('user.show.Category') %> <div class="row"><%= form.select(:pay_category, TransferCategory.all.map {|t| [t.category_name]}) %></div>
+              <p><%= form.label t('user.show.Type') %>  <div class="row" name="type_select" id="type_select"><%= form.select(:pay_type, TransferType.all.map {|t| [t.pay_type, t.lookup_code]}, include_blank: true) %></div></p>
+              <p><%= form.label t('user.show.Category') %> <div class="row" name="pay_category" id="pay_category"><%= form.select(:pay_category, TransferCategory.all.map {|t| [t.category_name]}, include_blank: true) %></div></p>
               <p><%= form.submit t('user.show.Add Pay'), :name => 'Add' %></p>
             <% end %>
           </div>

@@ -1,0 +1,6 @@
+<div>
+<select name="pay category" id="pay_category">
+    <% transfer_categories.all.each do |t|%>
+    <option value="<%= t.category_name%>"> <%=t.category_name%> </option>
+    <%end%>
+</div>

@@ -1,6 +1,5 @@
 class TransferCategoriesController < ApplicationController
   before_action :set_transfer_category, only: [:show, :edit, :update, :destroy]
-
   # GET /transfer_categories
   # GET /transfer_categories.json
   def index
@@ -10,6 +9,11 @@ class TransferCategoriesController < ApplicationController
   # GET /transfer_categories/1
   # GET /transfer_categories/1.json
   def show
+  end
+
+  def show_by_type
+    @transfer_categories = TransferCategory.where(:type_lookup_code => params[:type]).all
+    render partial: 'transfer_categories_select', locals: {transfer_categories: @transfer_categories}
   end
 
   # GET /transfer_categories/new
@@ -71,4 +75,9 @@ class TransferCategoriesController < ApplicationController
     def transfer_category_params
       params.require(:transfer_category).permit(:type_lookup_code, :category_name)
     end
+
+    def show_by_type_params
+      params.permit!
+    end
+
 end

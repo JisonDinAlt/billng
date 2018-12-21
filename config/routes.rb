@@ -34,6 +34,7 @@ scope "(:locale)", locale: /ru|en/ do
     resources :transfer_types
     resources :transfer_categories
     post 'transfer_types/new' => 'transfer_types#create'
+    get '/controller/action' => 'transfer_categories#show_by_type'
 
   end
 end
