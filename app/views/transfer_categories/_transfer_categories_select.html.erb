@@ -1,6 +1,1 @@
-<div>
-<select name="pay category" id="pay_category">
-    <% transfer_categories.all.each do |t|%>
-    <option value="<%= t.category_name%>"> <%=t.category_name%> </option>
-    <%end%>
-</div>
+<%= select_tag 'payment[pay_category]', options_for_select(transfer_categories.all.map{|tc| [tc.category_name]}) %>
